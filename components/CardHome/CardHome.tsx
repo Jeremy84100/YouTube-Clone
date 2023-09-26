@@ -45,7 +45,7 @@ function convertDuration(durationString: string) {
 }
 
 export default async function CardHome({ video }: any) {
-  const channelData: Promise<Channel[]> = GetChannel(video.snippet.channelId);
+  const channelData: Promise<Channel> = GetChannel(video.snippet.channelId);
   const channel = await channelData;
 
   const videoData: Promise<Video> = GetVideo(video.id.videoId);

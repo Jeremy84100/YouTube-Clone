@@ -92,7 +92,10 @@ type Video = {
             favoriteCount: string;
             commentCount: string;
         };
-    };
+        contentDetails: {
+            duration: string;
+        };
+    }[];
 }
 
 
@@ -141,5 +144,5 @@ type Channel = {
             hiddenSubscriberCount: boolean;
             videoCount: string;
         };
-    };
+    }[];
 }
