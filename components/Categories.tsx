@@ -1,7 +1,6 @@
 "use client";
 
 export default function Categories() {
-
   const dataCategories = [
     {
       id: 1,
@@ -74,20 +73,18 @@ export default function Categories() {
       id: 15,
       name: "Simulation Video Games",
     },
-
   ];
 
   return (
     <div className="flex top-14 bg-backgrounStartRgb z-10 fixed w-full overflow-x-auto overflow-hidden">
       {dataCategories.map((category) => (
-        <div className="my-3">
+        <div className="my-3" key={category.id}>
           <p
             className={`flex flex-wrap whitespace-nowrap text-sm cursor-pointer mr-3 py-1.5 px-3 rounded-lg transition-all ease-in-out duration-200 ${
               category.first
                 ? "bg-baseYoutube text-black"
                 : "bg-secondaireRgb text-baseYoutube hover:bg-youtube2"
-            }`}
-            key={category.id}>
+            }`}>
             {category.name}
           </p>
         </div>
