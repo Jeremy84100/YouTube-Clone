@@ -4,7 +4,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { Providers } from "@/app/redux/provider";
 
-import LateralNav from "@/components/LateralNav";
+import LateralNav from "@/components/LateralNav/LateralNav";
 
 const inter = Inter({ subsets: ["latin"] });
 

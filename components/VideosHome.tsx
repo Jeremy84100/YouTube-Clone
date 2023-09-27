@@ -2,8 +2,8 @@ import CardHome from "@/components/CardHome/CardHome";
 import GetAllVideos from "@/lib/GetAllVideos";
 
 export default async function VideosHome() {
-  const videosData: Promise<Videos[]> = GetAllVideos();
-  const videos: Videos[] = await videosData;
+  const videosData = GetAllVideos();
+  const videos = await videosData;
 
   return (
     <>
