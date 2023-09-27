@@ -5,10 +5,10 @@ import { MoreVertical } from "lucide-react";
 
 export default function More() {
   const [showMore, setShowMore] = useState(false);
-  const moreRef = useRef(null);
-
+  const moreRef = useRef<HTMLDivElement | null>(null);
+  
   useEffect(() => {
-    function handleClickOutside(event) {
+    function handleClickOutside(event: any) {
       if (moreRef.current && !moreRef.current.contains(event.target)) {
         setShowMore(false);
       }
