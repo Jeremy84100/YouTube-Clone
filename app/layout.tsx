@@ -4,7 +4,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { Providers } from "@/app/redux/provider";
 
-import LateralNav from "@/components/LateralNav/LateralNav";
+import LateralNav from "@/components/LateralNav";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -23,7 +23,7 @@ export default function RootLayout({
       <body className={inter.className}>
         <Providers>
           <Menu />
-          <div className="flex">
+          <div className="flex w-full">
             <LateralNav />
             <div className="px-6">{children}</div>
           </div>

@@ -1,7 +1,15 @@
 "use client";
 
 import React, { useState } from "react";
-import { Search, Mic, UserCircle2, MoreVertical, X, Menu, ArrowLeft } from "lucide-react";
+import {
+  Search,
+  Mic,
+  UserCircle2,
+  MoreVertical,
+  X,
+  Menu,
+  ArrowLeft,
+} from "lucide-react";
 import Link from "next/link";
 import { useDispatch } from "react-redux";
 import { toggle } from "@/app/redux/features/counterSlice";
@@ -145,7 +153,7 @@ export default function MenuNav() {
         </div>
       </div>
       <div
-        className={`flex items-center ml-10 ${
+        className={`flex items-center md:ml-10 ${
           searchToggle ? "block" : "hidden"
         }`}>
         <div
@@ -153,13 +161,17 @@ export default function MenuNav() {
           className="md:hidden block cursor-pointer p-2.5 hover:bg-youtube2 rounded-full">
           <Search size={20} />
         </div>
-        <div className="cursor-pointer p-2.5 active:bg-youtube2 rounded-full">
+        <div className="md:block hidden cursor-pointer p-2.5 active:bg-youtube2 rounded-full">
           <MoreVertical size={20} />
         </div>
-        <div className="flex pr-4 pl-3 items-center cursor-pointer text-signInColor border border-youtube2 hover:border-signInColorBg hover:bg-signInColorBg rounded-full ml-2 py-1.5 px-2">
+        <div className="flex pr-4 pl-3 items-center cursor-pointer text-youtube mobileL:text-signInColor mobileL:border mobileL:border-youtube2 mobileL:hover:border-signInColorBg mobileL:hover:bg-signInColorBg rounded-full ml-2 py-1.5 px-2">
           <UserCircle2 size={24} />
-          <h4 className="ml-1.5 text-sm font-semibold">Sign</h4>
-          <h4 className="ml-1 text-sm font-semibold">in</h4>
+          <h4 className="hidden mobileL:block ml-1.5 text-sm font-semibold">
+            Sign
+          </h4>
+          <h4 className="hidden mobileL:block ml-1 text-sm font-semibold">
+            in
+          </h4>
         </div>
       </div>
     </header>

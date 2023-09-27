@@ -39,6 +39,7 @@ const config: Config = {
       },
       screens: {
         '3xl': '1920px',
+        'mobileL': '425px',
     },
     fontSize: {
       'xxs': '.60rem',

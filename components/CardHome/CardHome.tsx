@@ -63,7 +63,7 @@ export default async function CardHome({ video }: any) {
   const duration = convertDuration(videoInfo.items[0].contentDetails.duration);
 
   return (
-    <div className="flex relative right-1 active:bg-youtube2 rounded-md p-1 flex-col mr-2 mb-8">
+    <div className="flex relative w-full right-1 active:bg-youtube2 rounded-md p-2 flex-col mb-8">
       <Link id="image" className="relative" href={`/video/${video.id.videoId}`}>
         <Image
           className="rounded-xl w-full h-full"
