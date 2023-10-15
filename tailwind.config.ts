@@ -25,6 +25,10 @@ const config: Config = {
         'iconsBorderColor': 'rgba(255, 255, 255, 0.2)',
         'baseYoutube': '#f1f1f1',
         'detailsYoutube': '#aaa',
+        'detailsButtonYoutbe': '#272727',
+        'detailsButtonYoutbeHover': '#525252',
+        'detailsLinks': '#3ea6ff',
+
       },
       borderRadius: {
         'icons': '10px',
@@ -36,6 +40,8 @@ const config: Config = {
         '15': '60px',
         '3.5': '14px',
         '150': '600px',
+        '1000': '1700px',
+        'video': '56.25%',
       },
       screens: {
         '3xl': '1920px',
@@ -46,7 +52,14 @@ const config: Config = {
      },
      zIndex: {
       '100': '100',
+      '90': '90',
     },
+    borderWidth: {
+      '6': '6px',
+    },
+    maxWidth: {
+      '25': '25rem',
+    }
     },
   },
   plugins: [],

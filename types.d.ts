@@ -46,56 +46,43 @@ type Videos = {
 type Video = {
     kind: string;
     etag: string;
-    nextPageToken: string;
-    regionCode: string;
-    pageInfo: {
-        totalResults: number;
-        resultsPerPage: number;
-    };
-    items: {
-        kind: string;
-        etag: string;
-        id: {
-            kind: string;
-            videoId: string;
-        };
-        snippet: {
-            publishedAt: string;
-            channelId: string;
-            title: string;
-            description: string;
-            thumbnails: {
-                default: {
-                    url: string;
-                    width: number;
-                    height: number;
-                };
-                medium: {
-                    url: string;
-                    width: number;
-                    height: number;
-                };
-                high: {
-                    url: string;
-                    width: number;
-                    height: number;
-                };
+    id: string;
+    snippet: {
+        publishedAt: string;
+        channelId: string;
+        title: string;
+        description: string;
+        thumbnails: {
+            default: {
+                url: string;
+                width: number;
+                height: number;
             };
-            channelTitle: string;
-            liveBroadcastContent: string;
-            publishTime: string;
+            medium: {
+                url: string;
+                width: number;
+                height: number;
+            };
+            high: {
+                url: string;
+                width: number;
+                height: number;
+            };
         };
-        statistics: {
-            viewCount: string;
-            likeCount: string;
-            dislikeCount: string;
-            favoriteCount: string;
-            commentCount: string;
-        };
-        contentDetails: {
-            duration: string;
-        };
-    }[];
+        channelTitle: string;
+        liveBroadcastContent: string;
+        publishTime: string;
+    };
+    statistics: {
+        viewCount: string;
+        likeCount: string;
+        dislikeCount: string;
+        favoriteCount: string;
+        commentCount: string;
+    };
+    contentDetails: {
+        duration: string;
+    };
 }
 
 

@@ -4,11 +4,12 @@ import { Menu, UserCircle2 } from "lucide-react";
 import { useDispatch, useSelector } from "react-redux";
 import { toggle } from "@/app/redux/features/counterSlice";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 export default function Sidebar() {
   const value = useSelector((state: any) => state.counter.value);
-
   const dispatch = useDispatch();
+  const pathname = usePathname();
 
   const handleToggle = () => {
     dispatch(toggle());
@@ -76,7 +77,7 @@ export default function Sidebar() {
         name: "Library",
         icon: (
           <svg
-            enable-background="new 0 0 24 24"
+            enableBackground="new 0 0 24 24"
             height="24"
             viewBox="0 0 24 24"
             width="24"
@@ -131,7 +132,7 @@ export default function Sidebar() {
         name: "Trending",
         icon: (
           <svg
-            enable-background="new 0 0 24 24"
+            enableBackground="new 0 0 24 24"
             height="24"
             viewBox="0 0 24 24"
             width="24"
@@ -149,7 +150,7 @@ export default function Sidebar() {
         name: "Music",
         icon: (
           <svg
-            enable-background="new 0 0 24 24"
+            enableBackground="new 0 0 24 24"
             height="24"
             viewBox="0 0 24 24"
             width="24"
@@ -184,7 +185,7 @@ export default function Sidebar() {
         name: "Live",
         icon: (
           <svg
-            enable-background="new 0 0 24 24"
+            enableBackground="new 0 0 24 24"
             height="24"
             viewBox="0 0 24 24"
             width="24"
@@ -204,7 +205,7 @@ export default function Sidebar() {
         name: "Gaming",
         icon: (
           <svg
-            enable-background="new 0 0 24 24"
+            enableBackground="new 0 0 24 24"
             height="24"
             viewBox="0 0 24 24"
             width="24"
@@ -222,7 +223,7 @@ export default function Sidebar() {
         name: "News",
         icon: (
           <svg
-            enable-background="new 0 0 24 24"
+            enableBackground="new 0 0 24 24"
             height="24"
             viewBox="0 0 24 24"
             width="24"
@@ -257,7 +258,7 @@ export default function Sidebar() {
         name: "Learning",
         icon: (
           <svg
-            enable-background="new 0 0 24 24"
+            enableBackground="new 0 0 24 24"
             height="24"
             viewBox="0 0 24 24"
             width="24"
@@ -404,7 +405,7 @@ export default function Sidebar() {
         name: "Settings",
         icon: (
           <svg
-            enable-background="new 0 0 24 24"
+            enableBackground="new 0 0 24 24"
             height="24"
             viewBox="0 0 24 24"
             width="24"
@@ -422,7 +423,7 @@ export default function Sidebar() {
         name: "Report history",
         icon: (
           <svg
-            enable-background="new 0 0 24 24"
+            enableBackground="new 0 0 24 24"
             height="24"
             viewBox="0 0 24 24"
             width="24"
@@ -440,7 +441,7 @@ export default function Sidebar() {
         name: "Help",
         icon: (
           <svg
-            enable-background="new 0 0 24 24"
+            enableBackground="new 0 0 24 24"
             height="24"
             viewBox="0 0 24 24"
             width="24"
@@ -458,7 +459,7 @@ export default function Sidebar() {
         name: "Send feedback",
         icon: (
           <svg
-            enable-background="new 0 0 24 24"
+            enableBackground="new 0 0 24 24"
             height="24"
             viewBox="0 0 24 24"
             width="24"
@@ -476,6 +477,7 @@ export default function Sidebar() {
 
   const dataLinksClose = [
     {
+      id: 1,
       name: "Home",
       icon: (
         <svg
@@ -490,6 +492,7 @@ export default function Sidebar() {
       ),
     },
     {
+      id: 2,
       name: "Shorts",
       icon: (
         <svg
@@ -504,6 +507,7 @@ export default function Sidebar() {
       ),
     },
     {
+      id: 3,
       name: "Subscriptions",
       icon: (
         <svg
@@ -518,10 +522,11 @@ export default function Sidebar() {
       ),
     },
     {
+      id: 4,
       name: "Library",
       icon: (
         <svg
-          enable-background="new 0 0 24 24"
+          enableBackground="new 0 0 24 24"
           height="24"
           viewBox="0 0 24 24"
           width="24"
@@ -532,6 +537,7 @@ export default function Sidebar() {
       ),
     },
     {
+      id: 5,
       name: "History",
       icon: (
         <svg
@@ -603,36 +609,52 @@ export default function Sidebar() {
     ],
   ];
 
+  const isVideoPage = pathname.startsWith("/video/");
+
   return (
     <div
-      className={`absolute z-100 md:z-50 md:static ${
-        value ? "block ml-60" : "ml-18"
-      }`}>
+      className={`absolute ${
+        isVideoPage ? "z-100" : "md:static z-100 md:z-50"
+      } ${value ? "block ml-60" : "ml-18"}`}>
       <div
-        className={`h-full md:bg-transparent md:mt-10 fixed left-0 overflow-y-auto scrollbar ${
-          value
-            ? " w-full md:w-60"
-            : "pointer-events-none	md:pointer-events-auto bg-transparent w-40"
-        }`}>
+        className={`h-full md:bg-transparent ${
+          isVideoPage
+            ? ""
+            : value
+            ? "md:mt-10 w-full md:w-60"
+            : "md:mt-10 pointer-events-none	md:pointer-events-auto bg-transparent w-40"
+        }  fixed left-0 overflow-y-auto scrollbar`}>
         <div
           onClick={handleToggle}
           className={`fixed bg-black/50 ${
-            value ? "md:w-0 md:h-0 w-full h-full" : "w-0 h-full"
+            isVideoPage
+              ? value
+                ? "w-full h-full"
+                : "w-0 h-full"
+              : value
+              ? "md:w-0 md:h-0 w-full h-full"
+              : "w-0 h-full"
           }`}
         />
         <div
-          className={`w-60 bg-backgrounStartRgb h-screen fixed top-0 md:top-10 left-0 overflow-y-auto scrollbar pb-0 md:pb-14 ${
+          className={`w-60 bg-backgrounStartRgb h-screen fixed ${
+            isVideoPage ? "" : "md:top-10 md:pb-14"
+          } top-0 left-0 overflow-y-auto scrollbar pb-0  ${
             value ? "block" : "hidden"
           }`}>
           <div className="flex items-center mt-2">
             <div
               onClick={handleToggle}
-              className="p-2 md:hidden relative left-4 flex items-center cursor-pointer hover:bg-secondaireRgb active:bg-youtube2 rounded-full">
+              className={`p-2 ${
+                isVideoPage ? "" : "md:hidden"
+              } relative left-4 flex items-center cursor-pointer hover:bg-secondaireRgb active:bg-youtube2 rounded-full`}>
               <Menu />
             </div>
             <Link
               href="/"
-              className="flex md:hidden relative items-center ml-4">
+              className={`${
+                isVideoPage ? "" : "md:hidden"
+              } flex relative items-center ml-4`}>
               <div className="h-5 mx-4 flex">
                 <svg viewBox="0 0 90 20" focusable="false">
                   <svg
@@ -682,10 +704,9 @@ export default function Sidebar() {
               key={index}
               className="p-3 pr-2 border-b border-iconsBorderColor mr-2">
               {links.map((link, subIndex) => (
-                <>
+                <div key={subIndex}>
                   {link.title && <h4 className="px-3 pb-1">{link.title}</h4>}
                   <li
-                    key={subIndex}
                     className={`flex px-3 rounded-icons ${
                       link.name
                         ? link.first
@@ -702,14 +723,14 @@ export default function Sidebar() {
                       </div>
                     )}
                   </li>
-                </>
+                </div>
               ))}
             </ul>
           ))}
           {dataFooter.map((links, index) => (
             <ul key={index} className="flex flex-wrap	 pt-4 px-6">
               {links.map((link, subIndex) => (
-                <li key={subIndex} className="mr-2 cursor-pointer">
+                <li className="mr-2 cursor-pointer" key={subIndex}>
                   <h4 className="text-xs font-semibold text-detailsYoutube">
                     {link.title}
                   </h4>
@@ -723,16 +744,15 @@ export default function Sidebar() {
             </p>
           </footer>
         </div>
-        <div className="relative hidden md:block">
+        <div
+          className={`${isVideoPage ? "hidden" : "relative hidden md:block"}`}>
           <div
             className={`w-18 h-hull fixed z-100 left-0 overflow-y-auto scrollbar mt-5 ${
               value ? "hidden" : "block"
             }`}>
-            {dataLinksClose.map((link, index) => (
-              <ul key={index} className="px-1">
-                <li
-                  key={index}
-                  className="flex pt-4 pb-3.5 flex-col items-center rounded-icons cursor-pointer hover:bg-iconsColor">
+            {dataLinksClose.map((link) => (
+              <ul className="px-1" key={link.id}>
+                <li className="flex pt-4 pb-3.5 flex-col items-center rounded-icons cursor-pointer hover:bg-iconsColor">
                   <div>{link.icon}</div>
                   {link.name && (
                     <h4 className="pt-1.5 text-xxs">{link.name}</h4>

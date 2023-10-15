@@ -1,10 +1,10 @@
-import GetChannel from "@/lib/GetChannel";
-import Image from "next/image";
-import GetVideo from "@/lib/GetVideo";
-import More from "./components/More";
-import Link from "next/link";
-import TimeAgo from "@/lib/TimeAgo";
+import More from "@/components/CardHome/components/More";
 import { formatViewCount } from "@/lib/FormatCount";
+import GetChannel from "@/lib/GetChannel";
+import GetVideo from "@/lib/GetVideo";
+import TimeAgo from "@/lib/TimeAgo";
+import Image from "next/image";
+import Link from "next/link";
 
 function convertDuration(durationString: string) {
   const match = durationString.match(/PT(\d+H)?(\d+M)?(\d+S)?/);
@@ -32,7 +32,7 @@ function convertDuration(durationString: string) {
   }
 }
 
-export default async function CardHome({ video }: any) {
+export default async function VideoOtherCard({ video }: { video: any }) {
   const channelData: Promise<Channel> = GetChannel(video.snippet.channelId);
   const channel = await channelData;
 
@@ -46,12 +46,15 @@ export default async function CardHome({ video }: any) {
   const duration = convertDuration(videoInfo.items[0].contentDetails.duration);
 
   return (
-    <div className="flex relative w-full right-1 active:bg-youtube2 rounded-md p-2 flex-col mb-8">
-      <Link id="image" className="relative" href={`/video/${video.id.videoId}`}>
+    <div className="flex relative max-w-25 right-1 gap-1 active:bg-youtube2 rounded-md p-1">
+      <Link
+        id="image"
+        className="flex-none relative"
+        href={`/video/${video.id.videoId}`}>
         <Image
-          className="rounded-xl w-full h-full"
-          width={400}
-          height={100}
+          className="rounded-lg"
+          width={168}
+          height={94}
           src={video.snippet.thumbnails.medium.url}
           alt={video.snippet.title}
         />
@@ -61,19 +64,10 @@ export default async function CardHome({ video }: any) {
       </Link>
       <div>
         <div className="relative flex h-full mt-2">
-          <Link className="mr-3" href={`/channel/${video.snippet.channelId}`}>
-            <Image
-              className="flex self-start mt-1 rounded-full mr-3"
-              width={36}
-              height={36}
-              src={channel.items[0].snippet.thumbnails.default.url}
-              alt={channel.items[0].snippet.title}
-            />
-          </Link>
           <div className="flex group w-full justify-between">
             <div>
               <Link href={`/video/${video.id.videoId}`}>
-                <h2 className="font-semibold twoLines">
+                <h2 className="font-semibold text-sm twoLines">
                   {video.snippet.title}
                 </h2>
               </Link>
@@ -83,7 +77,7 @@ export default async function CardHome({ video }: any) {
                     <h4 className="text-xs">{video.snippet.channelTitle}</h4>
                   </div>
                   <Link href={`/channel/${video.snippet.channelId}`}>
-                    <h4 className="text-sm twoLines text-detailsYoutube hover:text-baseYoutube">
+                    <h4 className="text-xs oneLine text-detailsYoutube hover:text-baseYoutube">
                       {video.snippet.channelTitle}
                     </h4>
                   </Link>
@@ -99,7 +93,7 @@ export default async function CardHome({ video }: any) {
                 </svg>
               </div>
               <Link href={`/video/${video.id.videoId}`}>
-                <h4 className="text-sm text-detailsYoutube self-center">
+                <h4 className="text-xs text-detailsYoutube oneLine self-center">
                   {viewCount} views •{" "}
                   <TimeAgo timestamp={video.snippet.publishedAt} />
                 </h4>

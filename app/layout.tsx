@@ -19,13 +19,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html lang="en" className="h-full">
       <body className={inter.className}>
         <Providers>
           <Menu />
           <div className="flex w-full">
             <LateralNav />
-            <div className="px-6">{children}</div>
+            <div className="px-6 mt-14 w-full">{children}</div>
           </div>
         </Providers>
       </body>

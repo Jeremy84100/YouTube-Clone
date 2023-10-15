@@ -8,5 +8,5 @@ export default async function Page({
   const channelData: Promise<Channel[]> = GetChannel(params.channelId);
   const channel = await channelData;
 
-  return <div>My Post: {params.channelId}</div>;
+  return <div>My Post: {channel.items[0].snippet.title}</div>;
 }
