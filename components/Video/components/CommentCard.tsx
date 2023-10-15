@@ -74,8 +74,8 @@ export default async function CommentCard({ comment }: any) {
         <CommentButton comment={comment}>
           {comment.replies &&
             comment.replies.comments &&
-            comment.replies.comments.map((comment: any) => (
-              <SuppliesCommentCard comment={comment} />
+            comment.replies.comments.map((comment: any, index: number) => (
+              <SuppliesCommentCard comment={comment} key={index} />
             ))}
         </CommentButton>
       </div>
