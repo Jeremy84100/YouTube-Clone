@@ -47,42 +47,44 @@ type Video = {
     kind: string;
     etag: string;
     id: string;
-    snippet: {
-        publishedAt: string;
-        channelId: string;
-        title: string;
-        description: string;
-        thumbnails: {
-            default: {
-                url: string;
-                width: number;
-                height: number;
+    items: {
+        snippet: {
+            publishedAt: string;
+            channelId: string;
+            title: string;
+            description: string;
+            thumbnails: {
+                default: {
+                    url: string;
+                    width: number;
+                    height: number;
+                };
+                medium: {
+                    url: string;
+                    width: number;
+                    height: number;
+                };
+                high: {
+                    url: string;
+                    width: number;
+                    height: number;
+                };
             };
-            medium: {
-                url: string;
-                width: number;
-                height: number;
-            };
-            high: {
-                url: string;
-                width: number;
-                height: number;
-            };
+            channelTitle: string;
+            liveBroadcastContent: string;
+            publishTime: string;
         };
-        channelTitle: string;
-        liveBroadcastContent: string;
-        publishTime: string;
-    };
-    statistics: {
-        viewCount: string;
-        likeCount: string;
-        dislikeCount: string;
-        favoriteCount: string;
-        commentCount: string;
-    };
-    contentDetails: {
-        duration: string;
-    };
+        statistics: {
+            viewCount: string;
+            likeCount: string;
+            dislikeCount: string;
+            favoriteCount: string;
+            commentCount: string;
+        };
+        contentDetails: {
+            duration: string;
+        };
+    }[];
 }
 
 
