@@ -46,7 +46,7 @@ export default async function VideoOtherCard({ video }: { video: any }) {
   const duration = convertDuration(videoInfo.items[0].contentDetails.duration);
 
   return (
-    <div className="flex relative max-w-25 right-1 gap-1 active:bg-youtube2 rounded-md p-1">
+    <div className="flex relative w-full lg:max-w-25 right-1 gap-1 active:bg-youtube2 rounded-md p-1">
       <Link
         id="image"
         className="flex-none relative"

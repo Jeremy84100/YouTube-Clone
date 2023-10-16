@@ -2,8 +2,9 @@ import Description from "./components/Description";
 import Statistics from "./components/Statistics";
 import Image from "next/image";
 import Comments from "./components/Comments";
+import VideoOtherCard from "./components/VideoOtherCard";
 
-export default async function Video({ video, channel }: any) {
+export default async function Video({ video, channel, videos }: any) {
   return (
     <div>
       {video.items.map((video: any) => (
@@ -21,6 +22,11 @@ export default async function Video({ video, channel }: any) {
           <h1 className="text-lg pt-4 font-semibold">{video.snippet.title}</h1>
           <Statistics video={video} channel={channel} />
           <Description video={video} channel={channel} />
+          <div className="block lg:hidden pt-8">
+            {videos.items.map((video: any) => (
+              <VideoOtherCard video={video} key={video.id.videoId} />
+            ))}
+          </div>
           <div className="pt-6">
             {video.statistics.commentCount ? (
               <div>

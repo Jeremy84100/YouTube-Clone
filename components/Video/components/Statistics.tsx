@@ -12,8 +12,8 @@ export default async function Statistics({ video, channel }: any) {
   const likeCount = formatLikeCount(parseInt(video.statistics.likeCount));
 
   return (
-    <div className="flex relative w-full justify-between items-center pt-2">
-      <div className="inline-flex items-center">
+    <div className="flex flex-col sm:flex-row relative w-full justify-between sm:items-center pt-2">
+      <div className="inline-flex items-center pb-4 sm:pb-0">
         <Link
           className="flex-none rounded-full"
           href={`/channel/${channel.items[0].id}`}>
@@ -36,18 +36,17 @@ export default async function Statistics({ video, channel }: any) {
               <h4 className="text-xs ">{channel.items[0].snippet.title}</h4>
             </div>
           </div>
-
           <p className="text-xs text-detailsYoutube">
             {subscriberCount} subscribers
           </p>
         </div>
-        <div className="flex cursor-pointer item-center ml-6 py-2 px-4 rounded-full bg-white hover:bg-neutral-300 active:bg-neutral-400">
+        <div className="flex ml-6 cursor-pointer item-center py-2 px-4 rounded-full bg-white hover:bg-neutral-300 active:bg-neutral-400">
           <h3 className="text-sm text-black font-medium">Subscribe</h3>
         </div>
       </div>
       <div className="flex gap-2">
-        <div className="flex">
-          <div className="flex cursor-pointer items-center ml-6 rounded-full bg-detailsButtonYoutbe ">
+        <div className="flex lg:ml-10">
+          <div className="flex cursor-pointer items-center sm:ml-6 rounded-full bg-detailsButtonYoutbe ">
             <div className="group relative rounded-s-full bg-detailsButtonYoutbe py-2 pl-3 pr-1 hover:bg-neutral-300/10 flex">
               <ThumbsUp size={20} className="text-white" />
               {video.statistics.likeCount ? (
@@ -86,7 +85,7 @@ export default async function Statistics({ video, channel }: any) {
             <h4 className="text-xs">Share</h4>
           </div>
         </div>
-        <div className="group relative cursor-pointer rounded-full bg-detailsButtonYoutbe">
+        <div className="group relative cursor-pointer rounded-full bg-detailsButtonYoutbe hidden xl:block ">
           <div className="rounded-full flex items-center px-2 py-1.5 hover:bg-neutral-300/10">
             <svg
               height="24"

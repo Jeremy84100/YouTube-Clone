@@ -59,6 +59,9 @@ const config: Config = {
     },
     maxWidth: {
       '25': '25rem',
+    },
+    minWidth: {
+      '40': '40rem',
     }
     },
   },

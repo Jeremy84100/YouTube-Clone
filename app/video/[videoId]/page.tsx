@@ -23,10 +23,10 @@ export default async function Page({
   return (
     <div className="w-1000 flex flex-col">
       <div className="flex">
-        <div className="pr-6 w-9/12">
-          <Video video={videoInfo} channel={channel} />
+        <div className="lg:pr-6 w-full lg:w-9/12 lg:min-w-40">
+          <Video video={videoInfo} videos={videos} channel={channel} />
         </div>
-        <div>
+        <div className="hidden lg:block">
           {videos.items.map((video: any) => (
             <VideoOtherCard video={video} key={video.id.videoId} />
           ))}
