@@ -50,9 +50,13 @@ export default async function Statistics({ video, channel }: any) {
           <div className="flex cursor-pointer items-center ml-6 rounded-full bg-detailsButtonYoutbe ">
             <div className="group relative rounded-s-full bg-detailsButtonYoutbe py-2 pl-3 pr-1 hover:bg-neutral-300/10 flex">
               <ThumbsUp size={20} className="text-white" />
-              <h3 className="text-sm text-white mx-2 font-medium">
-                {likeCount}
-              </h3>
+              {video.statistics.likeCount ? (
+                <h3 className="text-sm text-white mx-2 font-medium">
+                  {likeCount}
+                </h3>
+              ) : (
+                <h3 className="text-sm text-white mx-2 font-medium">Like</h3>
+              )}
               <div className="opacity-0 whitespace-nowrap group-hover:opacity-100 ease-in duration-100 pointer-events-none bottom-16 absolute left-3 p-2 rounded-md bg-neutral-600/95">
                 <h4 className="text-xs">I like this</h4>
               </div>
