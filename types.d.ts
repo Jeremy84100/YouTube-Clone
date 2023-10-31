@@ -120,6 +120,7 @@ type Channel = {
                     width: number;
                     height: number;
                 };
+
             };
             localized: {
                 title: string;

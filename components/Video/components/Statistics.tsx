@@ -22,6 +22,7 @@ export default async function Statistics({ video, channel }: any) {
             height={40}
             className="rounded-full"
             src={channel.items[0].snippet.thumbnails.default.url}
+            quality={20}
             alt="channel"
           />
         </Link>

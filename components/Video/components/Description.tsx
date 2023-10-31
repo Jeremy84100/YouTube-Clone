@@ -3,6 +3,7 @@ import { formatSubscriberCount, formatViewCount } from "@/lib/FormatCount";
 import { parseJsonText } from "@/lib/LinkJson";
 import Link from "next/link";
 import { PlaySquare, UserSquare2 } from "lucide-react";
+import Image from "next/image";
 
 export default async function Description({ video, channel }: any) {
   const viewCount = formatViewCount(parseInt(video.statistics.viewCount));
@@ -31,8 +32,11 @@ export default async function Description({ video, channel }: any) {
       </div>
       <div className="flex items-center border-t-6 border-white/20 py-5 mt-5">
         <Link className="rounded-full" href={`/channel/${channel.items[0].id}`}>
-          <img
-            className="rounded-full w-18 h-18"
+          <Image
+            className="rounded-full"
+            width={72}
+            height={72}
+            quality={50}
             src={channel.items[0].snippet.thumbnails.default.url}
             alt="channel"
           />

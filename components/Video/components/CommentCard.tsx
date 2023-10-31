@@ -26,6 +26,7 @@ export default async function CommentCard({ comment }: any) {
           width={40}
           height={40}
           src={comment.snippet.topLevelComment.snippet.authorProfileImageUrl}
+          quality={20}
           alt="profile"
           className="rounded-full"
         />

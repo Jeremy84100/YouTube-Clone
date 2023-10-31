@@ -55,6 +55,7 @@ export default async function VideoOtherCard({ video }: { video: any }) {
           className="rounded-lg"
           width={168}
           height={94}
+          quality={10}
           src={video.snippet.thumbnails.medium.url}
           alt={video.snippet.title}
         />
@@ -99,7 +100,6 @@ export default async function VideoOtherCard({ video }: { video: any }) {
                 </h4>
               </Link>
             </div>
-            <More />
           </div>
         </div>
       </div>

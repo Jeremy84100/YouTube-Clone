@@ -16,6 +16,7 @@ export function parseJsonText(jsonText: string) {
             <a
               key={index}
               style={{ color: "#3ea6ff" }}
+              className="oneLine break-before-avoid"
               href={part}
               target="_blank"
               rel="noopener noreferrer">
