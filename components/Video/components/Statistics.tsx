@@ -13,39 +13,41 @@ export default async function Statistics({ video, channel }: any) {
 
   return (
     <div className="flex flex-col sm:flex-row relative w-full justify-between sm:items-center pt-2">
-      <div className="inline-flex items-center pb-4 sm:pb-0">
-        <Link
-          className="flex-none rounded-full"
-          href={`/channel/${channel.items[0].id}`}>
-          <Image
-            width={40}
-            height={40}
-            className="rounded-full"
-            src={channel.items[0].snippet.thumbnails.default.url}
-            quality={20}
-            alt="channel"
-          />
-        </Link>
-        <div className="pl-3">
-          <div className="relative group">
-            <Link
-              href={`/channel/${channel.items[0].id}`}
-              className="font-semibold oneLine">
-              {channel.items[0].snippet.title}
-            </Link>
-            <div className="opacity-0 whitespace-nowrap group-hover:opacity-100 ease-in duration-100 pointer-events-none bottom-16 absolute p-2 rounded-md bg-neutral-600/95">
-              <h4 className="text-xs ">{channel.items[0].snippet.title}</h4>
+      <div className="inline-flex justify-between sm:justify-normal items-center pb-4 sm:pb-0">
+        <div className="flex">
+          <Link
+            className="flex-none rounded-full"
+            href={`/channel/${channel.items[0].id}`}>
+            <Image
+              width={40}
+              height={40}
+              className="rounded-full"
+              src={channel.items[0].snippet.thumbnails.default.url}
+              quality={20}
+              alt="channel"
+            />
+          </Link>
+          <div className="pl-3">
+            <div className="relative group">
+              <Link
+                href={`/channel/${channel.items[0].id}`}
+                className="font-semibold oneLine">
+                {channel.items[0].snippet.title}
+              </Link>
+              <div className="opacity-0 whitespace-nowrap group-hover:opacity-100 ease-in duration-100 pointer-events-none bottom-16 absolute p-2 rounded-md bg-neutral-600/95">
+                <h4 className="text-xs ">{channel.items[0].snippet.title}</h4>
+              </div>
             </div>
+            <p className="text-xs text-detailsYoutube">
+              {subscriberCount} subscribers
+            </p>
           </div>
-          <p className="text-xs text-detailsYoutube">
-            {subscriberCount} subscribers
-          </p>
         </div>
         <div className="flex ml-6 cursor-pointer item-center py-2 px-4 rounded-full bg-white hover:bg-neutral-300 active:bg-neutral-400">
           <h3 className="text-sm text-black font-medium">Subscribe</h3>
         </div>
       </div>
-      <div className="flex gap-2">
+      <div className="flex justify-end gap-2">
         <div className="flex lg:ml-10">
           <div className="flex cursor-pointer items-center sm:ml-6 rounded-full bg-detailsButtonYoutbe ">
             <div className="group relative rounded-s-full bg-detailsButtonYoutbe py-2 pl-3 pr-1 hover:bg-neutral-300/10 flex">
