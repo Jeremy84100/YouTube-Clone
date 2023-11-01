@@ -61,7 +61,7 @@ export default async function CardHome({ video }: any) {
       </Link>
       <div>
         <div className="relative flex h-full mt-2">
-          <Link className="mr-3" href={`/channel/${video.snippet.channelId}`}>
+          <Link className="mr-3" href={`/channel/${video.snippet.channelId}/featured`}>
             <Image
               className="flex self-start mt-1 rounded-full mr-3"
               width={36}
@@ -82,7 +82,7 @@ export default async function CardHome({ video }: any) {
                   <div className="opacity-0 whitespace-nowrap group-hover/name:opacity-100 ease-in duration-100 pointer-events-none bottom-10 absolute left-0 p-2 rounded-md bg-neutral-600/95">
                     <h4 className="text-xs">{video.snippet.channelTitle}</h4>
                   </div>
-                  <Link href={`/channel/${video.snippet.channelId}`}>
+                  <Link href={`/channel/${video.snippet.channelId}/featured`}>
                     <h4 className="text-sm twoLines text-detailsYoutube hover:text-baseYoutube">
                       {video.snippet.channelTitle}
                     </h4>

@@ -12,7 +12,7 @@ export function formatViewCount(viewCount: number) {
     }
   }
 
-export function formatSubscriberCount(subscriberCount: number) {
+export function formatSubscriberCount(subscriberCount: any) {
     if (subscriberCount >= 1e7 && subscriberCount < 1e9) {
       return (subscriberCount / 1e6).toFixed(0) + "M";
     } else if (subscriberCount >= 1e6) {

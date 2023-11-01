@@ -41,6 +41,7 @@ const config: Config = {
         '3.5': '14px',
         '150': '600px',
         '1000': '1700px',
+        '1600': '1300px',
         'video': '56.25%',
       },
       screens: {
@@ -59,6 +60,8 @@ const config: Config = {
     },
     maxWidth: {
       '25': '25rem',
+      '600': '600px',
+      '1600': '1300px',
     },
     minWidth: {
       '40': '40rem',

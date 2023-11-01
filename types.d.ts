@@ -134,5 +134,24 @@ type Channel = {
             hiddenSubscriberCount: boolean;
             videoCount: string;
         };
+        brandingSettings: {
+            channel: {
+                title: string;
+                description: string;
+                keywords: string;
+                trackingAnalyticsAccountId: string;
+                moderateComments: boolean;
+                unsubscribedTrailer: string;
+                defaultLanguage: string;
+                country: string;
+            };
+            image: {
+                bannerExternalUrl: string;
+            };
+        };
     }[];
+}
+
+type DateTimeFormatOptions = {
+    
 }

@@ -19,7 +19,7 @@ export default async function SuppliesCommentCard({ comment }: any) {
     <div className="flex gap-4 py-2">
       <Link
         className="rounded-full flex-none"
-        href={`/channel/${comment.snippet.authorChannelId.value}`}>
+        href={`/channel/${comment.snippet.authorChannelId.value}/featured`}>
         <Image
           width={40}
           height={40}
@@ -32,7 +32,7 @@ export default async function SuppliesCommentCard({ comment }: any) {
         <div className="flex">
           <Link
             className="font-semibold text-xs"
-            href={`/channel/${comment.snippet.authorChannelId.value}`}>
+            href={`/channel/${comment.snippet.authorChannelId.value}/featured`}>
             {channel.items[0].snippet.customUrl}
           </Link>
           <h1 className="ml-1 text-xs text-detailsYoutube">

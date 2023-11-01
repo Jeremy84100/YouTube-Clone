@@ -1,6 +1,6 @@
 import GetChannel from "@/lib/GetChannel";
 
-export default async function Page({
+export default async function Channel({
   params,
 }: {
   params: { channelId: string };

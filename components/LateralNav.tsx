@@ -622,7 +622,7 @@ export default function Sidebar() {
             ? ""
             : value
             ? "md:mt-10 w-full md:w-60"
-            : "md:mt-10 pointer-events-none	md:pointer-events-auto bg-transparent w-40"
+            : "md:mt-10 pointer-events-none	md:pointer-events-auto bg-transparent"
         }  fixed left-0 overflow-y-auto scrollbar`}>
         <div
           onClick={handleToggle}
@@ -747,7 +747,7 @@ export default function Sidebar() {
         <div
           className={`${isVideoPage ? "hidden" : "relative hidden md:block"}`}>
           <div
-            className={`w-18 h-hull fixed z-100 left-0 overflow-y-auto scrollbar mt-5 ${
+            className={`w-18 h-screen bg-backgrounStartRgb fixed z-100 left-0 overflow-y-auto scrollbar mt-5 ${
               value ? "hidden" : "block"
             }`}>
             {dataLinksClose.map((link) => (

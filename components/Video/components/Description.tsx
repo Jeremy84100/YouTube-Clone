@@ -44,7 +44,7 @@ export default async function Description({ video, channel }: any) {
         <div className="pl-3">
           <div className="relative group">
             <Link
-              href={`/channel/${channel.items[0].id}`}
+              href={`/channel/${channel.items[0].id}/featured`}
               className="font-semibold">
               {channel.items[0].snippet.title}
             </Link>

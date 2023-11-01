@@ -17,7 +17,7 @@ export default async function Statistics({ video, channel }: any) {
         <div className="flex">
           <Link
             className="flex-none rounded-full"
-            href={`/channel/${channel.items[0].id}`}>
+            href={`/channel/${channel.items[0].id}/featured`}>
             <Image
               width={40}
               height={40}
@@ -30,7 +30,7 @@ export default async function Statistics({ video, channel }: any) {
           <div className="pl-3">
             <div className="relative group">
               <Link
-                href={`/channel/${channel.items[0].id}`}
+                href={`/channel/${channel.items[0].id}/featured`}
                 className="font-semibold oneLine">
                 {channel.items[0].snippet.title}
               </Link>
