@@ -30,6 +30,7 @@ export default function ChannelNav({ channelId }: { channelId: string }) {
         <Link
           className="group mr-6"
           href={`/channel/${channelId}/${linkData.link}`}
+          key={linkData.link}
           passHref>
           <div className="flex py-2">
             <h3
