@@ -20,7 +20,9 @@ export default function DescriptionHero({
         <p className="oneLine text-sm text-detailsYoutube max-w-600">
           {channel.items[0].snippet.description}
         </p>
-        <ChevronRight className="text-detailsYoutube" size={24} />
+        <div>
+          <ChevronRight className="text-detailsYoutube" size={24} />
+        </div>
       </div>
     </Link>
   );

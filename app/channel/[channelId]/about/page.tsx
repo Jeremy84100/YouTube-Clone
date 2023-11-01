@@ -29,7 +29,7 @@ export default async function Channel({
 
   return (
     <div className="pt-4 flex w-full">
-      <div className="mr-24 w-2/3">
+      <div className="mr-16 sm:mr-24 w-2/3">
         <div className="border-b pb-8 border-iconsBorderColor">
           <h3 className="my-6">Description</h3>
           <p className="text-sm">{channel.items[0].snippet.description}</p>

@@ -34,12 +34,12 @@ export default async function ChannelHero({
         <Image
           src={channel.items[0].snippet.thumbnails.medium.url}
           alt="Placeholder"
-          className="rounded-full"
+          className="rounded-full hidden sm:block"
           width={160}
           height={160}
         />
-        <div className="flex flex-col justify-between">
-          <h1 className="text-4xl font-bold">
+        <div className="flex flex-col gap-3">
+          <h1 className="text-2xl sm:text-4xl font-bold">
             {channel.items[0].snippet.title}
           </h1>
           <h4 className="text-sm text-detailsYoutube">
