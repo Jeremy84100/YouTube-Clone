@@ -1,4 +1,5 @@
 import GetChannel from "@/lib/GetChannel";
+import { parseJsonText } from "@/lib/LinkJson";
 import { Flag, Forward } from "lucide-react";
 
 const formatNumberWithCommas = (number: number) => {
@@ -22,6 +23,11 @@ export default async function Channel({
   const channelData: Promise<Channel> = GetChannel(params.channelId);
   const channel = await channelData;
 
+  const descriptionWithLineBreaks =
+    channel.items[0].snippet.description.replace(/\n/g, "<br>");
+
+  const parsedDescription = parseJsonText(descriptionWithLineBreaks);
+
   const formattedDate = formatDate(channel.items[0].snippet.publishedAt);
   const formattedViews = formatNumberWithCommas(
     parseInt(channel.items[0].statistics.viewCount, 10)
@@ -32,7 +38,7 @@ export default async function Channel({
       <div className="mr-16 sm:mr-24 w-2/3">
         <div className="border-b pb-8 border-iconsBorderColor">
           <h3 className="my-6">Description</h3>
-          <p className="text-sm">{channel.items[0].snippet.description}</p>
+          <p className="text-sm">{parsedDescription}</p>
         </div>
       </div>
       <div className="flex flex-col pt-4 w-1/3">

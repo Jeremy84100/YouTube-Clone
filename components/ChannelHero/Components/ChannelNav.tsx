@@ -19,6 +19,10 @@ export default function ChannelNav({ channelId }: { channelId: string }) {
       link: "videos",
     },
     {
+      name: "Playlists",
+      link: "playlists",
+    },
+    {
       name: "About",
       link: "about",
     },
