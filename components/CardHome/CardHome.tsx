@@ -4,33 +4,8 @@ import GetVideo from "@/lib/GetVideo";
 import More from "./components/More";
 import Link from "next/link";
 import TimeAgo from "@/lib/TimeAgo";
-import { formatViewCount } from "@/lib/FormatCount";
+import { formatViewCount, convertDuration } from "@/lib/FormatCount";
 
-function convertDuration(durationString: string) {
-  const match = durationString.match(/PT(\d+H)?(\d+M)?(\d+S)?/);
-
-  let hours = "00";
-  let minutes = "00";
-  let seconds = "00";
-
-  if (match) {
-    if (match[1]) {
-      hours = match[1].replace("H", "").padStart(2, "0");
-    }
-    if (match[2]) {
-      minutes = match[2].replace("M", "").padStart(2, "0");
-    }
-    if (match[3]) {
-      seconds = match[3].replace("S", "").padStart(2, "0");
-    }
-  }
-
-  if (hours !== "00") {
-    return `${hours}:${minutes}:${seconds}`;
-  } else {
-    return `${minutes}:${seconds}`;
-  }
-}
 
 export default async function CardHome({ video }: any) {
   const channelData: Promise<Channel> = GetChannel(video.snippet.channelId);
@@ -52,6 +27,7 @@ export default async function CardHome({ video }: any) {
           className="rounded-xl w-full h-full"
           width={400}
           height={100}
+          quality={35}
           src={video.snippet.thumbnails.medium.url}
           alt={video.snippet.title}
         />
@@ -66,6 +42,7 @@ export default async function CardHome({ video }: any) {
               className="flex self-start mt-1 rounded-full mr-3"
               width={36}
               height={36}
+              quality={50}
               src={channel.items[0].snippet.thumbnails.default.url}
               alt={channel.items[0].snippet.title}
             />

@@ -53,3 +53,29 @@ export function formatLikeCount(subscriberCount: number) {
       return subscriberCount.toString();
     }
   }
+
+export function convertDuration(durationString: string) {
+    const match = durationString.match(/PT(\d+H)?(\d+M)?(\d+S)?/);
+  
+    let hours = "00";
+    let minutes = "00";
+    let seconds = "00";
+  
+    if (match) {
+      if (match[1]) {
+        hours = match[1].replace("H", "").padStart(2, "0");
+      }
+      if (match[2]) {
+        minutes = match[2].replace("M", "").padStart(2, "0");
+      }
+      if (match[3]) {
+        seconds = match[3].replace("S", "").padStart(2, "0");
+      }
+    }
+  
+    if (hours !== "00") {
+      return `${hours}:${minutes}:${seconds}`;
+    } else {
+      return `${minutes}:${seconds}`;
+    }
+  }

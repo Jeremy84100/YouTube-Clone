@@ -8,7 +8,7 @@ export default async function Home() {
   return (
     <div>
       <Categories />
-      <div className="pt-5 relative top-14 grid grid-cols-1 sm:grid-cols-2 2xl:grid-cols-4 lg:grid-cols-3">
+      <div className="pt-5 relative top-14 grid grid-cols-2 sm:grid-cols-3 2xl:grid-cols-5 lg:grid-cols-4">
         {videos.items.map((video: any) => (
           <CardHome video={video} key={video.id.videoId} />
         ))}
