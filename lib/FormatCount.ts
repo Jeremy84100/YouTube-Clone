@@ -79,3 +79,16 @@ export function convertDuration(durationString: string) {
       return `${minutes}:${seconds}`;
     }
   }
+
+  export function formatDate(dateString: string) {
+    const options: DateTimeFormatOptions = {
+      year: "numeric",
+      month: "short",
+      day: "numeric",
+    };
+    return new Date(dateString).toLocaleDateString(undefined, options);
+  };
+
+  export function formatNumberWithCommas(number: number) {
+    return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  };

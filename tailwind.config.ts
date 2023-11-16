@@ -42,6 +42,8 @@ const config: Config = {
         '150': '600px',
         '1000': '1700px',
         '1600': '1300px',
+        '22.5': '22.5rem',
+        'playlist': 'calc(100vh - 80px - 24px)',
         'video': '56.25%',
       },
       screens: {

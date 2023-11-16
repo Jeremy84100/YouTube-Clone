@@ -553,7 +553,6 @@ export default function Sidebar() {
       ),
     },
   ];
-
   const dataFooter = [
     [
       {

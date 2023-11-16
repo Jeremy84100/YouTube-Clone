@@ -1,19 +1,7 @@
 import GetChannel from "@/lib/GetChannel";
 import { parseJsonText } from "@/lib/LinkJson";
 import { Flag, Forward } from "lucide-react";
-
-const formatNumberWithCommas = (number: number) => {
-  return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-};
-
-const formatDate = (dateString: string) => {
-  const options: DateTimeFormatOptions = {
-    year: "numeric",
-    month: "short",
-    day: "numeric",
-  };
-  return new Date(dateString).toLocaleDateString(undefined, options);
-};
+import { formatDate, formatNumberWithCommas } from "@/lib/FormatCount";
 
 export default async function Channel({
   params,
