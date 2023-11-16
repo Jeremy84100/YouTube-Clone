@@ -48,6 +48,7 @@ type Video = {
     etag: string;
     id: string;
     items: {
+        id: string;
         snippet: {
             publishedAt: string;
             channelId: string;
