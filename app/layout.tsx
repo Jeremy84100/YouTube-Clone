@@ -25,7 +25,7 @@ export default function RootLayout({
           <Menu />
           <div className="flex w-full">
             <LateralNav />
-            <div className="px-6 mt-14 w-full">{children}</div>
+            <div className="sm:px-6 mt-14 w-full">{children}</div>
           </div>
         </Providers>
       </body>

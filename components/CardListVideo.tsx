@@ -49,12 +49,12 @@ export default async function CardListVideo({
           <div className="relative flex justify-between w-full h-full ml-2">
             <div className="flex w-full justify-between">
               <div>
-                <Link href={`/video/${video.snippet.resourceId.videoId}`}>
+                <Link className="oneLine" href={`/video/${video.snippet.resourceId.videoId}`}>
                   <h2 className="font-semibold twoLines">
                     {video.snippet.title}
                   </h2>
                 </Link>
-                <div className="flex mt-1 gap-1">
+                <div className="flex mt-1 gap-1 oneLine">
                   <div className="relative group/name">
                     <div className="opacity-0 whitespace-nowrap group-hover/name:opacity-100 ease-in duration-100 pointer-events-none bottom-10 absolute left-0 p-2 rounded-md bg-neutral-600/95">
                       <h4 className="text-xs">{video.snippet.channelTitle}</h4>
