@@ -25,7 +25,7 @@ export default async function Channel({
   return (
     <div>
       <SortVideos />
-      <div className="relative right-1 grid grid-cols-1 sm:grid-cols-2 2xl:grid-cols-4 lg:grid-cols-3">
+      <div className="relative grid grid-cols-1 sm:grid-cols-2 2xl:grid-cols-4 lg:grid-cols-3">
       {searchValue === "popular" ? (
         popularVideos.items.map((video: any) => (
           <CardHome key={video.id} video={video} />

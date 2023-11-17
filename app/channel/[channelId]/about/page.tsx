@@ -22,10 +22,10 @@ export default async function Channel({
   );
 
   return (
-    <div className="pt-4 flex w-full">
-      <div className="mr-16 sm:mr-24 w-2/3">
+    <div className="flex w-full">
+      <div className="mr-12 sm:mr-24 w-2/3">
         <div className="border-b pb-8 border-iconsBorderColor">
-          <h3 className="my-6">Description</h3>
+          <h3 className="mb-6">Description</h3>
           <p className="text-sm">{parsedDescription}</p>
         </div>
       </div>
@@ -37,7 +37,7 @@ export default async function Channel({
         <h4 className="border-b py-3 text-sm border-iconsBorderColor">
           {formattedViews} views
         </h4>
-        <div className="flex mt-2 gap-4">
+        <div className="flex mt-2 sm:gap-4">
           <div className="relative group">
             <div className="cursor-pointer p-2.5 rounded-full hover:bg-detailsYoutube/30">
               <Flag size={20} className="text-white" />

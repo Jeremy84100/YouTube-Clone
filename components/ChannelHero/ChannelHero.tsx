@@ -19,7 +19,7 @@ export default async function ChannelHero({
 
   console.log(channelId);
   return (
-    <div>
+    <div className="mb-20">
       <Image
         src={
           channel.items[0].brandingSettings.image.bannerExternalUrl +
@@ -35,7 +35,7 @@ export default async function ChannelHero({
         <Image
           src={channel.items[0].snippet.thumbnails.medium.url}
           alt="Placeholder"
-          className="rounded-full hidden sm:block"
+          className="flex-none rounded-full hidden sm:block"
           width={160}
           height={160}
           quality={20}
@@ -56,8 +56,10 @@ export default async function ChannelHero({
           </div>
         </div>
       </div>
-      <ChannelNav channelId={channelId} />
-      <div className="absolute right-0 w-screen h-px bg-iconsBorderColor"/>
+      <div className="relative">
+        <ChannelNav channelId={channelId} />
+        <div className="absolute right-0 top-15 w-screen h-px bg-iconsBorderColor" />
+      </div>
     </div>
   );
 }

@@ -12,15 +12,17 @@ export function parseJsonText(jsonText: string) {
       const parts = element.split(/(https?:\/\/\S+)/g);
       return parts.map((part, index) => {
         if (part.match(/https?:\/\/\S+/)) {
+          const shortenedLink = part.length > 30 ? part.substring(0, 20) + "..." : part;
           return (
             <a
               key={index}
               style={{ color: "#3ea6ff" }}
-              className="oneLine break-before-avoid"
+              className="oneLine overflow-hidden"
               href={part}
               target="_blank"
-              rel="noopener noreferrer">
-              {part}
+              rel="noopener noreferrer"
+            >
+              {shortenedLink}
             </a>
           );
         } else {

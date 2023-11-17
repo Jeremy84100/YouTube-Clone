@@ -36,24 +36,19 @@ export default function SortVideos() {
   ];
 
   return (
-    <div>
-      <div className="flex bg-backgrounStartRgb z-10 w-full">
-        {dataCategories.map((category) => (
-          <div
-            className="my-4"
-            key={category.id}
-            onClick={() => handleSort(category.name)}>
-            <p
-              className={`flex flex-wrap font-semibold whitespace-nowrap text-sm cursor-pointer mr-3 py-1.5 px-3 rounded-lg transition-all ease-in-out duration-200 ${
-                category.name === sort
-                  ? "bg-baseYoutube text-black"
-                  : "bg-secondaireRgb text-baseYoutube hover:bg-youtube2"
-              }`}>
-              {category.name}
-            </p>
-          </div>
-        ))}
-      </div>
+    <div className="flex mb-4 bg-backgrounStartRgb z-10">
+      {dataCategories.map((category) => (
+        <div key={category.id} onClick={() => handleSort(category.name)}>
+          <p
+            className={`flex flex-wrap font-semibold whitespace-nowrap text-sm cursor-pointer mr-3 py-1.5 px-3 rounded-lg transition-all ease-in-out duration-200 ${
+              category.name === sort
+                ? "bg-baseYoutube text-black"
+                : "bg-secondaireRgb text-baseYoutube hover:bg-youtube2"
+            }`}>
+            {category.name}
+          </p>
+        </div>
+      ))}
     </div>
   );
 }

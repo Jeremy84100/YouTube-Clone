@@ -29,10 +29,10 @@ export default function ChannelNav({ channelId }: { channelId: string }) {
   ];
 
   return (
-    <div className="flex mt-4">
+    <div className="flex gap-6 absolute mt-4 w-full overflow-x-auto overflow-hidden">
       {channelLinkData.map((linkData) => (
         <Link
-          className="group mr-6"
+          className="group"
           href={`/channel/${channelId}/${linkData.link}`}
           key={linkData.link}
           passHref>

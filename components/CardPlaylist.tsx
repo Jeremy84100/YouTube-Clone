@@ -8,14 +8,14 @@ export default function CardPlaylist({ playlist }: any) {
       href={`/list/${playlist.id}`}
       passHref
       className="flex flex-col mb-10">
-      <div className="relative flex flex-col items-center ">
+      <div className="relative flex flex-col">
         <div className="absolute bg-zinc-500 rounded-lg bottom-5 w-48 h-24" />
         <div className="group">
           <div className="relative w-52 h-28 rounded-lg overflow-hidden">
             <Image
               width="208"
               height="100"
-              quality={30}
+              quality={20}
               src={playlist.snippet.thumbnails.medium.url}
               alt={playlist.snippet.title}
             />

@@ -21,7 +21,7 @@ export default async function CardHome({ video }: any) {
   const duration = convertDuration(videoInfo.items[0].contentDetails.duration);
 
   return (
-    <div className="flex relative w-full right-1 active:bg-youtube2 rounded-md p-2 flex-col mb-8">
+    <div className="flex relative w-full sm:right-1 active:bg-youtube2 rounded-md sm:p-2 py-2 flex-col mb-8">
       <Link id="image" className="relative" href={`/video/${video.id.videoId}`}>
         <Image
           className="rounded-xl w-full h-full"
@@ -39,7 +39,7 @@ export default async function CardHome({ video }: any) {
         <div className="relative flex h-full mt-2">
           <Link className="mr-3" href={`/channel/${video.snippet.channelId}/featured`}>
             <Image
-              className="flex self-start mt-1 rounded-full mr-3"
+              className="mt-1 rounded-full mr-3"
               width={36}
               height={36}
               quality={50}

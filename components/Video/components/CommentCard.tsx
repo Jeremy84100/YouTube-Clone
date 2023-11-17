@@ -36,7 +36,9 @@ export default async function CommentCard({ comment }: any) {
           <Link
             className="font-semibold text-xs"
             href={`/channel/${comment.snippet.topLevelComment.snippet.authorChannelId.value}/featured`}>
-            {channel.items[0].snippet.customUrl}
+            {channel.items[0].snippet.customUrl.length > 20
+              ? `${channel.items[0].snippet.customUrl.substring(0, 15)}...`
+              : channel.items[0].snippet.customUrl}
           </Link>
           <h1 className="ml-1 text-xs text-detailsYoutube">
             <TimeAgo
