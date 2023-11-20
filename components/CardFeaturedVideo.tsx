@@ -1,16 +1,15 @@
 import GetChannel from "@/lib/GetChannel";
 import Image from "next/image";
 import GetVideo from "@/lib/GetVideo";
-import More from "./components/More";
 import Link from "next/link";
 import TimeAgo from "@/lib/TimeAgo";
 import { formatViewCount, convertDuration } from "@/lib/FormatCount";
 
-export default async function CardHome({ video }: any) {
+export default async function CardFeaturedVideo({ video }: any) {
   const channelData: Promise<Channel> = GetChannel(video.snippet.channelId);
   const channel = await channelData;
 
-  const videoData: Promise<Video> = GetVideo(video.id.videoId);
+  const videoData: Promise<Video> = GetVideo(video.snippet.resourceId.videoId);
   const videoInfo = await videoData;
 
   const viewCount = formatViewCount(
@@ -20,34 +19,22 @@ export default async function CardHome({ video }: any) {
   const duration = convertDuration(videoInfo.items[0].contentDetails.duration);
 
   return (
-    <div className="flex relative w-full sm:right-1 active:bg-youtube2 rounded-md mobileL:p-2 py-2 flex-col mb-8">
-      <Link id="image" className="relative" href={`/video/${video.id.videoId}`}>
-          <Image
-            className="rounded-xl flex w-full h-full"
-            width={400}
-            height={100}
-            quality={35}
-            src={video.snippet.thumbnails.medium.url}
-            alt={video.snippet.title}
-          />
+    <div className="flex relative sm:right-1 active:bg-youtube2 rounded-md py-2 flex-col mb-8">
+      <Link id="image" className="relative w-52" href={`/video/${video.id.videoId}`}>
+        <Image
+          className="rounded-xl"
+          width={400}
+          height={100}
+          quality={35}
+          src={video.snippet.thumbnails.medium.url}
+          alt={video.snippet.title}
+        />
         <h4 className="absolute bottom-1 right-1 bg-black/80 px-1 py-px rounded text-xs text-white">
           {duration}
         </h4>
       </Link>
       <div>
         <div className="relative flex h-full mt-2">
-          <Link
-            className="mr-3 hidden sm:block"
-            href={`/channel/${video.snippet.channelId}/featured`}>
-            <Image
-              className="mt-1 rounded-full mr-3"
-              width={36}
-              height={36}
-              quality={50}
-              src={channel.items[0].snippet.thumbnails.default.url}
-              alt={channel.items[0].snippet.title}
-            />
-          </Link>
           <div className="flex group w-full justify-between">
             <div>
               <Link href={`/video/${video.id.videoId}`}>
@@ -83,7 +70,6 @@ export default async function CardHome({ video }: any) {
                 </h4>
               </Link>
             </div>
-            <More />
           </div>
         </div>
       </div>

@@ -32,14 +32,16 @@ export default async function ChannelHero({
         quality={20}
       />
       <div className="flex gap-6 pt-4">
-        <Image
-          src={channel.items[0].snippet.thumbnails.medium.url}
-          alt="Placeholder"
-          className="flex-none rounded-full hidden sm:block"
-          width={160}
-          height={160}
-          quality={20}
-        />
+        <div>
+          <Image
+            src={channel.items[0].snippet.thumbnails.medium.url}
+            alt="Placeholder"
+            className="rounded-full hidden sm:block"
+            width={160}
+            height={160}
+            quality={20}
+          />
+        </div>
         <div className="flex flex-col gap-3">
           <h1 className="text-2xl sm:text-4xl font-bold">
             {channel.items[0].snippet.title}

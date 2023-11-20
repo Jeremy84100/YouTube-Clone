@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   Search,
   Mic,
@@ -14,14 +14,16 @@ import Link from "next/link";
 import { useDispatch } from "react-redux";
 import { toggle } from "@/app/redux/features/counterSlice";
 import { toggleSearch } from "@/app/redux/features/searchSlice";
+import { usePathname } from "next/navigation";
 import { useSelector } from "react-redux";
 
 export default function MenuNav() {
   const [isActive, setIsActive] = useState(false);
   const [search, setSearch] = useState("");
   const searchToggle = useSelector((state: any) => state.search.value);
-
+  const path = usePathname();
   const dispatch = useDispatch();
+
 
   const handleToggle = () => {
     dispatch(toggle());

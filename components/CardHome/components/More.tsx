@@ -6,7 +6,7 @@ import { MoreVertical } from "lucide-react";
 export default function More() {
   const [showMore, setShowMore] = useState(false);
   const moreRef = useRef<HTMLDivElement | null>(null);
-  
+
   useEffect(() => {
     function handleClickOutside(event: any) {
       if (moreRef.current && !moreRef.current.contains(event.target)) {
@@ -20,8 +20,6 @@ export default function More() {
       window.removeEventListener("click", handleClickOutside);
     };
   }, []);
-
-
 
   const dataMore = [
     {
@@ -55,7 +53,7 @@ export default function More() {
   ];
 
   return (
-    <div className="relative z-50 bottom-1 left-2" ref={moreRef}>
+    <div className="hidden md:block relative z-50 bottom-1 left-2" ref={moreRef}>
       <div
         className="cursor-pointer opacity-0 group-hover:opacity-100 p-3 rounded-full active:bg-youtube2/80"
         onClick={() => setShowMore(!showMore)}>

@@ -15,7 +15,7 @@ export default function CardPlaylist({ playlist }: any) {
             <Image
               width="208"
               height="100"
-              quality={30}
+              quality={20}
               className="rounded-lg w-full h-full"
               src={playlist.snippet.thumbnails.medium.url}
               alt={playlist.snippet.title}

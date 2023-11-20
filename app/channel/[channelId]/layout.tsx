@@ -16,7 +16,7 @@ export default function RootLayout({
 }) {
   return (
     <div className="flex justify-center">
-      <div className="max-w-1600">
+      <div className="max-w-1600 sm:mx-12">
         <ChannelHero channelId={params.channelId} />
         {children}
       </div>

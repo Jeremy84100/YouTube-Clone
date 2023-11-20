@@ -16,8 +16,8 @@ export default function DescriptionHero({
 
   return (
     <Link href={`/channel/${channelId}/about`}>
-      <div className={`flex ${isAboutActive ? "text-detailsYoutube" : ""}`}>
-        <p className="oneLine text-sm text-detailsYoutube max-w-600 overflow-hidden">
+      <div className={`flex  ${isAboutActive ? "text-detailsYoutube" : ""}`}>
+        <p className="oneLine text-sm text-detailsYoutube max-w-600 mobileL:w-full w-40">
           {channel.items[0].snippet.description}
         </p>
         <div>
