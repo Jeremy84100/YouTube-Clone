@@ -2,7 +2,7 @@ const apiKey = process.env.YOUTUBE_API_KEY;
 const maxResults = 15;
 
 export default async function GetAllPopularChannelVideos(channelId: string) {
-    const res = await fetch(`https://www.googleapis.com/youtube/v3/search?key=${apiKey}&channelId=${channelId}&part=snippet,id&order=viewCount&maxResults=${maxResults}`)
+    const res = await fetch(`https://www.googleapis.com/youtube/v3/search?key=AIzaSyCvV7DOEUAlIuUEwX_K1lZy3ROSgp430m8&channelId=${channelId}&part=snippet,id&order=viewCount&maxResults=${maxResults}`)
 
     if (!res.ok) throw new Error('failed to fetch data')
 
