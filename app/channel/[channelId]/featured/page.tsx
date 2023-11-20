@@ -19,10 +19,9 @@ export default async function Featured({
   return (
     <div className="gap-6">
       {playlists.items.map((playlist: any) => (
-        <div className="relative mb-80">
+        <div key={playlist.id} className="relative mb-80">
           <Link
             className="text-xl font-bold"
-            key={playlist.id}
             href={`/list/${playlist.id}`}>
             {playlist.snippet.title}
           </Link>
