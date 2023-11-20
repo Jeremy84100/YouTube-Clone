@@ -30,8 +30,8 @@ export default async function Featured({
             {playlist.snippet.description}
           </h4>
           <div className="flex gap-1 pl-1 absolute w-full overflow-x-auto overflow-hidden mt-6 border-b">
-            {list.items.map((item: any) => (
-              <CardFeaturedVideo video={item} key={item.id} />
+            {list.items.map((item: any, index: number) => (
+              <CardFeaturedVideo video={item} key={index} />
             ))}
           </div>
         </div>
