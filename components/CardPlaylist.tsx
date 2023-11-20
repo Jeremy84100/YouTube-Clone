@@ -8,18 +8,19 @@ export default function CardPlaylist({ playlist }: any) {
       href={`/list/${playlist.id}`}
       passHref
       className="flex flex-col mb-10">
-      <div className="relative flex flex-col">
-        <div className="absolute bg-zinc-500 rounded-lg bottom-5 w-48 h-24" />
-        <div className="group">
-          <div className="relative w-52 h-28 rounded-lg overflow-hidden">
+      <div className="relative flex flex-col ">
+        <div className="group rounded-lg">
+          <div className="relative w-full h-full flex justify-center">
+            <div className="absolute bg-zinc-500 -z-10 rounded-lg bottom-1 w-4/5 h-full" />
             <Image
               width="208"
               height="100"
-              quality={20}
+              quality={30}
+              className="rounded-lg w-full h-full"
               src={playlist.snippet.thumbnails.medium.url}
               alt={playlist.snippet.title}
             />
-            <div className="absolute top-0 w-52 h-28 group-hover:flex bg-black/70 hidden items-center justify-center">
+            <div className="rounded-lg absolute top-0 w-full h-full group-hover:flex bg-black/70 hidden items-center justify-center">
               <div className="flex items-center">
                 <Play className="w-5 h-5 text-white" />
                 <h4 className="text-xs font-semibold text-white ml-1">
