@@ -1,4 +1,3 @@
-import GetChannel from "@/lib/GetChannel";
 import Image from "next/image";
 import GetVideo from "@/lib/GetVideo";
 import Link from "next/link";
@@ -6,11 +5,12 @@ import TimeAgo from "@/lib/TimeAgo";
 import { formatViewCount, convertDuration } from "@/lib/FormatCount";
 
 export default async function CardFeaturedVideo({ video }: any) {
-  const channelData: Promise<Channel> = GetChannel(video.snippet.channelId);
-  const channel = await channelData;
-
-  const videoData: Promise<Video> = GetVideo(video.snippet.resourceId.videoId);
+  const videoData: Promise<Video> = GetVideo(video.contentDetails.videoId);
   const videoInfo = await videoData;
+
+  if (!videoInfo.items || videoInfo.items.length === 0) {
+    return null;
+  }
 
   const viewCount = formatViewCount(
     parseInt(videoInfo.items[0].statistics.viewCount)
@@ -20,7 +20,10 @@ export default async function CardFeaturedVideo({ video }: any) {
 
   return (
     <div className="flex relative sm:right-1 active:bg-youtube2 rounded-md py-2 flex-col mb-8">
-      <Link id="image" className="relative w-52" href={`/video/${video.id.videoId}`}>
+      <Link
+        id="image"
+        className="relative w-52"
+        href={`/video/${video.snippet.resourceId.videoId}`}>
         <Image
           className="rounded-xl"
           width={400}
@@ -38,7 +41,7 @@ export default async function CardFeaturedVideo({ video }: any) {
           <div className="flex group w-full justify-between">
             <div>
               <Link href={`/video/${video.id.videoId}`}>
-                <h2 className="font-semibold twoLines">
+                <h2 className="font-semibold twoLines w-52">
                   {video.snippet.title}
                 </h2>
               </Link>

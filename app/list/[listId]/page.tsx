@@ -38,7 +38,7 @@ export default async function List({ params }: { params: { listId: string } }) {
     <div className="flex lg:flex-row flex-col pt-6">
       <div>
         <div className="lg:fixed block lg:h-playlist p-6 rounded-2xl bg-slate-600 lg:w-22.5">
-          <div className="flex md:items-center lg:flex-col md:flex-row flex-col">
+          <div className="flex md:items-center lg:items-start lg:flex-col md:flex-row flex-col">
             <Link
               href={`/video/${videoInfo.items[0].id}`}
               passHref
@@ -71,7 +71,7 @@ export default async function List({ params }: { params: { listId: string } }) {
                     <div className="relative group">
                       <Link
                         className="text-sm font-semibold"
-                        href={`/channel/${channel.items[0].id}`}>
+                        href={`/channel/${channel.items[0].id}/featured`}>
                         {channel.items[0].snippet.title}
                       </Link>
                       <div className="opacity-0 whitespace-nowrap group-hover:opacity-100 ease-in duration-100 pointer-events-none top-10 absolute left-0 p-2 rounded-md bg-neutral-600/95">

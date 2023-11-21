@@ -13,11 +13,15 @@ export default async function CardListVideo({
   video: any;
   index: number;
 }) {
-  const channelData: Promise<Channel> = GetChannel(video.snippet.channelId);
-  const channel = await channelData;
-
   const videoData: Promise<Video> = GetVideo(video.snippet.resourceId.videoId);
   const videoInfo = await videoData;
+
+
+  if (!videoInfo.items || videoInfo.items.length === 0) {
+    return null;
+  }
+
+  const displayedIndex = index + 1;
 
   const viewCount = formatViewCount(
     parseInt(videoInfo.items[0].statistics.viewCount)
@@ -27,7 +31,7 @@ export default async function CardListVideo({
 
   return (
     <div className="group h-28 flex items-center hover:bg-youtube2 rounded-xl px-2">
-      <h1 className="mr-4 text-sm ml-2">{index + 1}</h1>
+      <h1 className="mr-4 text-sm ml-2">{displayedIndex}</h1>
       <div className="flex w-full">
         <Link
           id="image"
@@ -49,7 +53,9 @@ export default async function CardListVideo({
           <div className="relative flex justify-between w-full h-full ml-2">
             <div className="flex w-full justify-between">
               <div>
-                <Link className="oneLine" href={`/video/${video.snippet.resourceId.videoId}`}>
+                <Link
+                  className="oneLine"
+                  href={`/video/${video.snippet.resourceId.videoId}`}>
                   <h2 className="font-semibold twoLines">
                     {video.snippet.title}
                   </h2>
