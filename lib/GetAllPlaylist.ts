@@ -1,4 +1,4 @@
-const apiKey = process.env.YOUTUBE_API_KEY;
+const apiKey = process.env.NEXT_PUBLIC_YOUTUBE_API_KEY;
 const maxResults = 10;
 
 export default async function GetAllPlaylist(channelId: string) {

@@ -1,4 +1,4 @@
-const apiKey = process.env.YOUTUBE_API_KEY;
+const apiKey = process.env.NEXT_PUBLIC_YOUTUBE_API_KEY;
 
 export default async function GetSearchVideos(query: any, categoryId: any) {
 
