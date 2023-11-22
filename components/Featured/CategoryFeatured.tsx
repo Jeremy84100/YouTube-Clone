@@ -6,8 +6,12 @@ export default async function CategoryFeatured({ playlist }: any) {
   const playlistItems = GetPlaylistItems(playlist.id);
   const list = await playlistItems;
 
+  if (!list.items || list.items.length === 0) {
+    return null;
+  }
+
   return (
-    <div className="relative mb-80">
+    <div className="relative mb-80 twoLine">
       <Link className="text-xl font-bold" href={`/list/${playlist.id}`}>
         {playlist.snippet.title}
       </Link>

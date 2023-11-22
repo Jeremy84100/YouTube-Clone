@@ -28,7 +28,7 @@ export default async function Video({ video, channel, videos }: any) {
             ))}
           </div>
           <div className="pt-6">
-            {video.statistics.commentCount ? (
+            {video.statistics.commentCount === 0 ? (
               <div>
                 <h4>{video.statistics.commentCount} Comments</h4>
                 <div className="my-6 flex items-center cursor-pointer">

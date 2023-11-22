@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import { useState } from "react";
 import {
   Search,
   Mic,
@@ -13,40 +13,47 @@ import {
 import Link from "next/link";
 import { useDispatch } from "react-redux";
 import { toggle } from "@/app/redux/features/counterSlice";
-import { toggleSearch } from "@/app/redux/features/searchSlice";
-import { usePathname } from "next/navigation";
-import { useSelector } from "react-redux";
+import { usePathname, useRouter } from "next/navigation";
 
 export default function MenuNav() {
   const [isActive, setIsActive] = useState(false);
-  const [search, setSearch] = useState("");
-  const searchToggle = useSelector((state: any) => state.search.value);
-  const path = usePathname();
+  const [inputValue, setInputValue] = useState("");
+  const [isSearchNotEmpty, setIsSearchNotEmpty] = useState(false);
+  const [searchToggle, setSearchToggle] = useState(true);
+
+  let { replace } = useRouter();
+  let pathname = usePathname();
   const dispatch = useDispatch();
 
-
-  const handleToggle = () => {
+  const handleLateralNavToggle = () => {
     dispatch(toggle());
   };
 
-  const handleSearchToggle = () => {
-    dispatch(toggleSearch());
+  const handleSearch = (term: any) => {
+    let params = new URLSearchParams(window.location.search);
+    if (term) {
+      params.set("q", term);
+      setIsSearchNotEmpty(true);
+    } else {
+      params.delete("q");
+      setIsSearchNotEmpty(false);
+    }
+    replace(`${pathname}?${params.toString()}`);
   };
 
-  const handleSearch = (e: any) => {
-    setSearch(e.target.value);
+  const handleSearchToggle = () => {
+    setSearchToggle(!searchToggle);
   };
 
   const clearSearch = () => {
-    setSearch("");
+    handleSearch("");
+    setInputValue("");
   };
-
-  const isSearchNotEmpty = search.length > 0;
 
   return (
     <header className="px-4 h-14 fixed z-50 md:z-100 flex w-full bg-backgrounStartRgb justify-between items-center">
       <div
-        onClick={handleToggle}
+        onClick={handleLateralNavToggle}
         className={`p-2 absolute top-2 left-4 mb-12 items-center cursor-pointer hover:bg-secondaireRgb active:bg-youtube2 rounded-full ${
           searchToggle ? "flex" : "hidden"
         }`}>
@@ -127,8 +134,11 @@ export default function MenuNav() {
               type="text"
               placeholder="Search"
               className="bg-backgrounInput w-full placeholder:text-textInput placeholder:font-light outline-0 text-base"
-              value={search}
-              onChange={handleSearch}
+              onChange={(e) => {
+                setInputValue(e.target.value);
+                handleSearch(e.target.value);
+              }}
+              value={inputValue}
               onFocus={() => setIsActive(true)}
               onBlur={() => setIsActive(false)}
             />
@@ -140,12 +150,13 @@ export default function MenuNav() {
               <X size={20} />
             </div>
           </div>
-          <div className="group flex relative rounded-e-3xl search-icon-legacy bg-secondaireRgb pr-5 pl-4 cursor-pointer border border-l-0 items-center border-youtube2">
+          <Link href={`/search/${inputValue}`}
+            className="group flex relative rounded-e-3xl search-icon-legacy bg-secondaireRgb pr-5 pl-4 cursor-pointer border border-l-0 items-center border-youtube2">
             <Search size={20} />
             <div className="opacity-0 whitespace-nowrap group-hover:opacity-100 ease-in duration-100 pointer-events-none top-14 absolute left-0 p-2 rounded-md bg-neutral-600/95">
               <h4 className="text-xs">Search</h4>
             </div>
-          </div>
+          </Link>
         </div>
         <div className="ml-4 relative group cursor-pointer hover:bg-youtube2 p-2 rounded-full bg-secondaireRgb">
           <Mic size={24} />

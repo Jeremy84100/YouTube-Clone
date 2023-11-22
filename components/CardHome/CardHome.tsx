@@ -17,19 +17,23 @@ export default async function CardHome({ video }: any) {
     parseInt(videoInfo.items[0].statistics.viewCount)
   );
 
+  if (!videoInfo.items || videoInfo.items.length === 0) {
+    return null;
+  }
+
   const duration = convertDuration(videoInfo.items[0].contentDetails.duration);
 
   return (
     <div className="flex relative w-full sm:right-1 active:bg-youtube2 rounded-md mobileL:p-2 py-2 flex-col mb-8">
       <Link id="image" className="relative" href={`/video/${video.id.videoId}`}>
-          <Image
-            className="rounded-xl flex w-full h-full"
-            width={400}
-            height={100}
-            quality={35}
-            src={video.snippet.thumbnails.medium.url}
-            alt={video.snippet.title}
-          />
+        <Image
+          className="rounded-xl flex w-full h-full"
+          width={400}
+          height={100}
+          quality={35}
+          src={video.snippet.thumbnails.medium.url}
+          alt={video.snippet.title}
+        />
         <h4 className="absolute bottom-1 right-1 bg-black/80 px-1 py-px rounded text-xs text-white">
           {duration}
         </h4>

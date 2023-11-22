@@ -1,91 +1,55 @@
 "use client";
 
-export default function Categories() {
-  const dataCategories = [
-    {
-      id: 1,
-      name: "All",
-      first: true,
-    },
-    {
-      id: 2,
-      name: "Comedy",
-      first: false,
-    },
-    {
-      id: 3,
-      name: "Formula",
-      first: false,
-    },
-    {
-      id: 4,
-      name: "Gaming",
-      first: false,
-    },
-    {
-      id: 5,
-      name: "Music",
-      first: false,
-    },
-    {
-      id: 6,
-      name: "News",
-      first: false,
-    },
-    {
-      id: 7,
-      name: "Sports",
-      first: false,
-    },
-    {
-      id: 8,
-      name: "Live",
-      first: false,
-    },
-    {
-      id: 9,
-      name: "Fashion",
-      first: false,
-    },
-    {
-      id: 10,
-      name: "Learning",
-      first: false,
-    },
-    {
-      id: 11,
-      name: "Recommended",
-      first: false,
-    },
-    {
-      id: 12,
-      name: "Recent",
-    },
-    {
-      id: 13,
-      name: "Home",
-    },
-    {
-      id: 14,
-      name: "Action-adventure games",
-    },
-    {
-      id: 15,
-      name: "Simulation Video Games",
-    },
-  ];
+import { usePathname, useRouter } from "next/navigation";
+import { useState } from "react";
+
+export default function Categories({ categories }: any) {
+  const [active, setActive] = useState<string | null>(null);
+  const { replace } = useRouter();
+  const pathname = usePathname();
+
+  const handleSort = (term: string) => {
+    setActive(term);
+    const params = new URLSearchParams(window.location.search);
+    if (term) {
+      params.set("category", term);
+    } else {
+      params.delete("category");
+    }
+    replace(`${pathname}?${params.toString()}`);
+  };
+
+  const handleClear = () => {
+    setActive(null);
+    const params = new URLSearchParams(window.location.search);
+    params.delete("category");
+    replace(`${pathname}?${params.toString()}`);
+  };
 
   return (
-    <div className="flex top-14 bg-backgrounStartRgb z-10 fixed w-full overflow-x-auto overflow-hidden">
-      {dataCategories.map((category) => (
-        <div className="my-3" key={category.id}>
+    <div className="flex">
+      <div className="my-3" key="all" onClick={handleClear}>
+        <p
+          className={`flex flex-wrap whitespace-nowrap text-sm cursor-pointer mr-3 py-1.5 px-3 rounded-lg transition-all ease-in-out duration-200 ${
+            active === null
+              ? "bg-baseYoutube text-black"
+              : "bg-secondaireRgb text-baseYoutube hover:bg-youtube2"
+          }`}>
+          All
+        </p>
+      </div>
+      {categories.items.map((category: any) => (
+        <div
+          className="my-3"
+          key={category.id}
+          onClick={() => handleSort(category.id)}>
           <p
             className={`flex flex-wrap whitespace-nowrap text-sm cursor-pointer mr-3 py-1.5 px-3 rounded-lg transition-all ease-in-out duration-200 ${
-              category.first
+              active === category.id
                 ? "bg-baseYoutube text-black"
                 : "bg-secondaireRgb text-baseYoutube hover:bg-youtube2"
             }`}>
-            {category.name}
+            {category.snippet.title}
           </p>
         </div>
       ))}
