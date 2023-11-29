@@ -1,9 +1,19 @@
 import GetAllComments from "@/lib/GetAllComments";
 import CommentCard from "./CommentCard";
 
-export default async function Comments({ video }: any) {
-  const commentsData = GetAllComments(video.id);
-  const comments = await commentsData;
+export default async function Comments({
+  video,
+  searchParams,
+}: {
+  video: any;
+  searchParams?: { [key: string]: string | string[] | undefined };
+}) {
+
+  let sort = searchParams?.search ?? "";
+
+  console.log(sort);
+
+  const comments = await GetAllComments(video.id, null);
 
   return (
     <div>

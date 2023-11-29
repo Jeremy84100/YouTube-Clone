@@ -3,8 +3,9 @@ import Statistics from "./components/Statistics";
 import Image from "next/image";
 import Comments from "./components/Comments";
 import VideoOtherCard from "./components/VideoOtherCard";
+import SortComments from "./components/SortComments";
 
-export default async function Video({ video, channel, videos }: any) {
+export default function Video({ video, channel, videos }: any) {
   return (
     <div>
       {video.items.map((video: any) => (
@@ -28,9 +29,16 @@ export default async function Video({ video, channel, videos }: any) {
             ))}
           </div>
           <div className="pt-6">
-            {video.statistics.commentCount === 0 ? (
+            {video.statistics.commentCount !== "0" &&
+            video.snippet.liveBroadcastContent !== "live" &&
+            video.statistics.commentCount ? (
               <div>
-                <h4>{video.statistics.commentCount} Comments</h4>
+                <div className="flex">
+                  <h4 className="text-xl font-bold">
+                    {video.statistics.commentCount} Comments
+                  </h4>
+                  <SortComments />
+                </div>
                 <div className="my-6 flex items-center cursor-pointer">
                   <Image
                     width={40}
@@ -45,6 +53,34 @@ export default async function Video({ video, channel, videos }: any) {
                 </div>
                 <Comments video={video} />
               </div>
+            ) : video.statistics.commentCount === "0" ? (
+              <div>
+                <div className="flex">
+                  <h4 className="text-xl font-bold">
+                    {video.statistics.commentCount} Comments
+                  </h4>
+                  <SortComments />
+                </div>
+                <div className="my-6 flex items-center cursor-pointer">
+                  <Image
+                    width={40}
+                    height={40}
+                    src="https://yt3.ggpht.com/a/default-user=s48-c-k-c0x00ffffff-no-rj"
+                    alt="channel"
+                    className="rounded-full"
+                  />
+                  <h4 className="w-full border-b border-detailsYoutube/30 text-sm text-detailsYoutube pb-1 ml-4  ">
+                    Add a comment...
+                  </h4>
+                </div>
+              </div>
+            ) : !video.statistics.commentCount ? (
+              <h1 className="text-sm py-6 text-center">
+                Comments are turned off.{" "}
+                <span className="cursor-pointer text-detailsLinks">
+                  Learn more
+                </span>
+              </h1>
             ) : (
               <h1 className="text-sm py-6 text-center">
                 Comments are turned off.{" "}

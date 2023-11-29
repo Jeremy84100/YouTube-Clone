@@ -3,6 +3,10 @@ import Image from "next/image";
 import Link from "next/link";
 
 export default function CardPlaylist({ playlist }: any) {
+  if (playlist.contentDetails.itemCount === 0) {
+    return null;
+  }
+
   return (
     <Link
       href={`/list/${playlist.id}`}

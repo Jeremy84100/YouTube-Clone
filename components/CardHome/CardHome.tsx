@@ -13,14 +13,15 @@ export default async function CardHome({ video }: any) {
   const videoData: Promise<Video> = GetVideo(video.id.videoId);
   const videoInfo = await videoData;
 
-  const viewCount = formatViewCount(
-    parseInt(videoInfo.items[0].statistics.viewCount)
-  );
-
   if (!videoInfo.items || videoInfo.items.length === 0) {
     return null;
   }
 
+  const viewCount = formatViewCount(
+    parseInt(videoInfo.items[0].statistics.viewCount)
+  );
+
+  
   const duration = convertDuration(videoInfo.items[0].contentDetails.duration);
 
   return (

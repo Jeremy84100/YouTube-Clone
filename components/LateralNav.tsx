@@ -622,7 +622,7 @@ export default function Sidebar() {
             : value
             ? "md:mt-10 w-full md:w-60"
             : "md:mt-10 pointer-events-none	md:pointer-events-auto bg-transparent"
-        }  fixed left-0 overflow-y-auto scrollbar`}>
+        }  fixed left-0 overflow-y-auto`}>
         <div
           onClick={handleToggle}
           className={`fixed bg-black/50 ${
@@ -637,11 +637,11 @@ export default function Sidebar() {
         />
         <div
           className={`w-60 bg-backgrounStartRgb h-screen fixed ${
-            isVideoPage ? "" : "md:top-10 md:pb-14"
-          } top-0 left-0 overflow-y-auto scrollbar pb-0  ${
+            isVideoPage ? "" : "md:top-14 md:pb-14"
+          } top-0 left-0 overflow-y-auto overflow-hidden pb-0  ${
             value ? "block" : "hidden"
           }`}>
-          <div className="flex items-center mt-2">
+          <div className="flex items-center md:mt-0 mt-2">
             <div
               onClick={handleToggle}
               className={`p-2 ${
