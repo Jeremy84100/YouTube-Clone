@@ -20,17 +20,19 @@ export default async function ChannelHero({
   console.log(channelId);
   return (
     <div className="mb-20">
-      <Image
-        src={
-          channel.items[0].brandingSettings.image.bannerExternalUrl +
-          "=w1707-fcrop64=1,00005a57ffffa5a8-k-c0xffffffff-no-nd-rj"
-        }
-        alt="Placeholder"
-        className="rounded-xl"
-        width={1600}
-        height={400}
-        quality={20}
-      />
+      {channel.items[0].brandingSettings.image ? (
+        <Image
+          src={
+            channel.items[0].brandingSettings.image.bannerExternalUrl +
+            "=w1707-fcrop64=1,00005a57ffffa5a8-k-c0xffffffff-no-nd-rj"
+          }
+          alt="Placeholder"
+          className="rounded-xl"
+          width={1600}
+          height={400}
+          quality={20}
+        />
+      ) : null}
       <div className="flex gap-6 pt-4">
         <div>
           <Image
