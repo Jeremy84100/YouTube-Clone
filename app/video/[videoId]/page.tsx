@@ -1,7 +1,7 @@
 import Video from "@/components/Video/Video";
 import VideoOtherCard from "@/components/Video/components/VideoOtherCard";
-import GetAllVideos from "@/lib/GetAllVideos";
 import GetChannel from "@/lib/GetChannel";
+import GetSearchVideos from "@/lib/GetSearchVideo";
 import GetVideo from "@/lib/GetVideo";
 
 export default async function Page({
@@ -17,7 +17,7 @@ export default async function Page({
   );
   const channel = await channelData;
 
-  const videosData = GetAllVideos();
+  const videosData = GetSearchVideos(null, null);
   const videos = await videosData;
 
   return (
