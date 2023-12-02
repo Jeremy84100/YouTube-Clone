@@ -19,7 +19,7 @@ export default async function CardFeaturedVideo({ video }: any) {
   const duration = convertDuration(videoInfo.items[0].contentDetails.duration);
 
   return (
-    <div className="flex relative sm:right-1 active:bg-youtube2 rounded-md py-2 flex-col mb-8">
+    <div className="flex relative sm:right-1 active:bg-youtube2 rounded-md py-2 px-0.5 flex-col mb-8">
       <Link
         id="image"
         className="relative w-52"

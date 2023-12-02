@@ -17,7 +17,6 @@ export default async function ChannelHero({
     channel.items[0].statistics.subscriberCount
   );
 
-  console.log(channelId);
   return (
     <div className="mb-20">
       {channel.items[0].brandingSettings.image ? (

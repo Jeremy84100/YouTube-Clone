@@ -18,7 +18,7 @@ export default async function CategoryFeatured({ playlist }: any) {
       <h4 className="mt-2 text-sm font-light text-textInput oneLine max-w-25">
         {playlist.snippet.description}
       </h4>
-      <div className="flex gap-1 pl-1 absolute w-full overflow-x-auto overflow-hidden mt-6 border-b">
+      <div className="flex pl-1 absolute w-full overflow-x-auto overflow-hidden mt-6 border-b">
         {list.items.map((video: any, index: number) => (
           <CardFeaturedVideo video={video} key={index} />
         ))}
