@@ -46,13 +46,13 @@ export default async function VideoOtherCard({ video }: { video: any }) {
   const duration = convertDuration(videoInfo.items[0].contentDetails.duration);
 
   return (
-    <div className="flex relative mb-2 right-1 gap-4 active:bg-youtube2 rounded-md p-1 overflow-hidden">
+    <div className="flex flex-col mobileL:flex-row relative mb-2 right-1 gap-4 active:bg-youtube2 rounded-md p-1 overflow-hidden">
       <Link
         id="image"
         className="flex-none relative"
         href={`/video/${video.id.videoId}`}>
         <Image
-          className="rounded-lg"
+          className="rounded-lg w-full"
           width={360}
           height={201}
           quality={50}
@@ -101,8 +101,8 @@ export default async function VideoOtherCard({ video }: { video: any }) {
               </div>
               <Link
                 href={`/video/${video.id.videoId}`}
-                className="oneLine text-xs text-detailsYoutube">
-                {video.snippet.description}
+                className="mobileL:block hidden ">
+                <p className="oneLine text-xs text-detailsYoutube">{video.snippet.description}</p>
               </Link>
             </div>
           </div>
